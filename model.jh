@@ -1,0 +1,66 @@
+
+entity Consumer {
+	ikpi String
+    brand Brand
+    scope String
+    alias String
+    telematicld String
+    createdDate LocalDate
+    updatedDate LocalDate
+}
+
+entity Souscription {
+    status StatusSouscription
+    createdDate LocalDate
+    endDate LocalDate
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Concent {
+	type TypeConcent
+	status StatusConcent
+	createdDate LocalDate
+    updatedDate LocalDate
+}
+
+entity Account {
+    idPFM String
+    alias String
+    rib String
+    createdDate LocalDate
+}
+
+enum StatusSouscription {
+    STATUS_SOUSCRIPTION
+}
+
+enum TypeConcent {
+    CONCENT
+}
+
+enum StatusConcent {
+    STATUS_CONCENT
+}
+
+enum Brand {
+    BRAND
+}
+
+relationship ManyToOne{
+  Consumer {souscription} to Souscription
+}
+
+relationship ManyToOne{
+  Souscription {concent} to Concent
+}
+
+relationship ManyToMany{
+  Account {concent} to Concent {account}
+}
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
