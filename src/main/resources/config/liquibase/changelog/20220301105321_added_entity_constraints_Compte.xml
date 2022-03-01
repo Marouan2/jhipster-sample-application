@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Compte.
+    -->
+    <changeSet id="20220301105321-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="compte_id"
+                                 baseTableName="rel_compte__concent"
+                                 constraintName="fk_rel_compte__concent__compte_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="compte"/>
+
+        <addForeignKeyConstraint baseColumnNames="concent_id"
+                                 baseTableName="rel_compte__concent"
+                                 constraintName="fk_rel_compte__concent__concent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concent"/>
+    </changeSet>
+</databaseChangeLog>

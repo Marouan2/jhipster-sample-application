@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20220301105320",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "concent",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeConcent",
+      "fieldValues": "CONCENT"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusConcent",
+      "fieldValues": "STATUS_CONCENT"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Concent",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "compte",
+      "otherEntityRelationshipName": "concent",
+      "ownerSide": false,
+      "relationshipName": "compte",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

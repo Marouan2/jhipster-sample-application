@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "jhipsterSampleApplicationConcent": {
+      "home": {
+        "title": "Concents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Concent",
+        "createOrEditLabel": "Create or edit a Concent",
+        "notFound": "No Concents found"
+      },
+      "created": "A new Concent is created with identifier {{ param }}",
+      "updated": "A Concent is updated with identifier {{ param }}",
+      "deleted": "A Concent is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Concent {{ id }}?"
+      },
+      "detail": {
+        "title": "Concent"
+      },
+      "id": "ID",
+      "type": "Type",
+      "status": "Status",
+      "createdDate": "Created Date",
+      "updatedDate": "Updated Date",
+      "compte": "Compte"
+    }
+  }
+}
