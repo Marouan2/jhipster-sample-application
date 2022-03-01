@@ -1,0 +1,117 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-souscription-heading"
+        data-cy="SouscriptionCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.home.createOrEditLabel"
+      >
+        Create or edit a Souscription
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.status"
+            for="field_status"
+            >Status</label
+          >
+          <select class="form-control" name="status" formControlName="status" id="field_status" data-cy="status">
+            <option [ngValue]="null">{{ 'jhipsterSampleApplicationApp.StatusSouscription.null' | translate }}</option>
+            <option *ngFor="let statusSouscription of statusSouscriptionValues" [value]="statusSouscription">
+              {{ 'jhipsterSampleApplicationApp.StatusSouscription.' + statusSouscription | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.createdDate"
+            for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="text"
+              class="form-control"
+              name="createdDate"
+              ngbDatepicker
+              #createdDateDp="ngbDatepicker"
+              formControlName="createdDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.endDate"
+            for="field_endDate"
+            >End Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.concent"
+            for="field_concent"
+            >Concent</label
+          >
+          <select class="form-control" id="field_concent" data-cy="concent" name="concent" formControlName="concent">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="concentOption.id === editForm.get('concent')!.value?.id ? editForm.get('concent')!.value : concentOption"
+              *ngFor="let concentOption of concentsSharedCollection; trackBy: trackConcentById"
+            >
+              {{ concentOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

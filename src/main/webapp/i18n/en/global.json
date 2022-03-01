@@ -7,6 +7,10 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "jhipsterSampleApplicationConsumer": "Consumer",
+        "jhipsterSampleApplicationSouscription": "Souscription",
+        "jhipsterSampleApplicationConcent": "Concent",
+        "jhipsterSampleApplicationCompte": "Compte",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

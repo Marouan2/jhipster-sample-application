@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="souscription">
+      <h2 data-cy="souscriptionDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.detail.title">Souscription</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ souscription.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'jhipsterSampleApplicationApp.StatusSouscription.' + souscription.status }}">{{
+            souscription.status
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ souscription.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ souscription.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationSouscription.concent">Concent</span></dt>
+        <dd>
+          <div *ngIf="souscription.concent">
+            <a [routerLink]="['/concent', souscription.concent?.id, 'view']">{{ souscription.concent?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/jhipstersampleapplication/souscription', souscription.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
