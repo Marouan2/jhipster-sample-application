@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220301105155",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "souscription",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "StatusSouscription",
+      "fieldValues": "STATUS_SOUSCRIPTION"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Souscription",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "concent",
+      "otherEntityRelationshipName": "souscription",
+      "relationshipName": "concent",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

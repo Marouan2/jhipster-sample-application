@@ -1,0 +1,93 @@
+<div>
+  <h2 id="page-heading" data-cy="CompteHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.home.title">Comptes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-compte"
+        [routerLink]="['/jhipstersampleapplication/compte/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.home.createLabel"> Create a new Compte </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="comptes?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.home.notFound">No comptes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="comptes && comptes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.idPFM">Id PFM</span></th>
+          <th scope="col"><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.alias">Alias</span></th>
+          <th scope="col"><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.rib">Rib</span></th>
+          <th scope="col">
+            <span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.createdDate">Created Date</span>
+          </th>
+          <th scope="col"><span jhiTranslate="jhipsterSampleApplicationApp.jhipsterSampleApplicationCompte.concent">Concent</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compte of comptes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/jhipstersampleapplication/compte', compte.id, 'view']">{{ compte.id }}</a>
+          </td>
+          <td>{{ compte.idPFM }}</td>
+          <td>{{ compte.alias }}</td>
+          <td>{{ compte.rib }}</td>
+          <td>{{ compte.createdDate | formatMediumDate }}</td>
+          <td>
+            <span *ngFor="let concent of compte.concents; let last = last">
+              <a class="form-control-static" [routerLink]="['/concent', concent.id, 'view']">{{ concent.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/compte', compte.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/jhipstersampleapplication/compte', compte.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(compte)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220301105154",
+  "clientRootFolder": "jhipsterSampleApplication",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "consumer",
+  "fields": [
+    {
+      "fieldName": "ikpi",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "brand",
+      "fieldType": "Brand",
+      "fieldValues": "BRAND"
+    },
+    {
+      "fieldName": "scope",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alias",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telematicld",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "jhipsterSampleApplication",
+  "name": "Consumer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "souscription",
+      "otherEntityRelationshipName": "consumer",
+      "relationshipName": "souscription",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
